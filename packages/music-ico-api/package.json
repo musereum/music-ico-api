@@ -1,0 +1,24 @@
+{
+  "name": "music-ico-api",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "micro -p 5500",
+    "dev": "micro-dev -p 5500",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "micro": "^9.1.4",
+    "micro-cacheable": "^2.0.1",
+    "microrouter": "^3.1.1"
+  },
+  "devDependencies": {
+    "micro-dev": "^2.2.2"
+  },
+  "engines": {
+    "node": "9.x.x"
+  }
+}

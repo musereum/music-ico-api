@@ -1,0 +1,51 @@
+[{
+  "anonymous": false,
+  "inputs": [
+    {
+      "indexed": false,
+      "name": "_from",
+      "type": "address"
+    },
+    {
+      "indexed": false,
+      "name": "_tokens",
+      "type": "uint256"
+    }
+  ],
+  "name": "Received",
+  "type": "event"
+},
+{
+  "anonymous": false,
+  "inputs": [
+    {
+      "indexed": false,
+      "name": "_from",
+      "type": "address"
+    },
+    {
+      "indexed": false,
+      "name": "_tokens",
+      "type": "uint256"
+    }
+  ],
+  "name": "Collected",
+  "type": "event"
+},
+{
+  "anonymous": false,
+  "inputs": [
+    {
+      "indexed": false,
+      "name": "_from",
+      "type": "address"
+    },
+    {
+      "indexed": false,
+      "name": "_tokens",
+      "type": "uint256"
+    }
+  ],
+  "name": "Redeemed",
+  "type": "event"
+}]

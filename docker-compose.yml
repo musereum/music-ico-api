@@ -1,0 +1,38 @@
+version: '2.3'
+services:
+  mongo:
+    image: healthcheck/mongo
+    ports:
+      - 27017:27017
+
+  api:
+    restart: on-failure
+    build:
+      context: ./
+      dockerfile: docker/api.Dockerfile
+    volumes:
+      - .:/usr/src/app
+    env_file: .env
+    links:
+      - mongo
+    depends_on:
+      mongo:
+        condition: service_healthy
+    ports:
+      - 5500:5500
+
+  watcher:
+    restart: on-failure
+    build:
+      context: ./
+      dockerfile: docker/watcher.Dockerfile
+    volumes:
+      - .:/usr/src/app
+    env_file: .env
+    links:
+      - mongo
+    depends_on:
+      mongo:
+        condition: service_healthy
+
+

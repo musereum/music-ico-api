@@ -1,0 +1,20 @@
+{
+  "name": "music-ico-watcher",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "web3": "^0.20.6",
+    "web3-provider-engine": "^13.8.0"
+  },
+  "engines": {
+    "node": "9.x.x"
+  }
+}
