@@ -1,4 +1,5 @@
-version: '2.3'
+version: '3'
+
 services:
   mongo:
     image: healthcheck/mongo
@@ -7,32 +8,26 @@ services:
 
   api:
     restart: on-failure
-    build:
-      context: ./
-      dockerfile: docker/api.Dockerfile
+    build: ./packages/music-ico-api
     volumes:
       - .:/usr/src/app
     env_file: .env
     links:
       - mongo
     depends_on:
-      mongo:
-        condition: service_healthy
+      - mongo
     ports:
       - 5500:5500
 
   watcher:
     restart: on-failure
-    build:
-      context: ./
-      dockerfile: docker/watcher.Dockerfile
+    build: ./packages/music-ico-watcher
     volumes:
       - .:/usr/src/app
     env_file: .env
     links:
       - mongo
     depends_on:
-      mongo:
-        condition: service_healthy
+      - mongo
 
 

@@ -1,8 +1,0 @@
-.idea
-.git
-.env
-docker-compose*
-node_modules
-*.Dockerfile
-lerna-debug.log
-yarn-error.log

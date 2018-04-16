@@ -1,4 +1,6 @@
 const { send, json } = require('micro')
+const rateLimit = require('micro-ratelimit')
+const cors = require('micro-cors')()
 const cache = require('micro-cacheable')
 
 const LogEvent = require('music-ico-common/model/logEvent')
@@ -7,7 +9,7 @@ const { unserialize, sortProperties } = require('music-ico-common/utils')
 
 connectWithDB()
 
-module.exports = cache(15e3, async (req, res) => {
+module.exports = rateLimit({ window: 60000, limit: 6, headers: true }, cache(15e3, cors(async (req, res) => {
   const events = await LogEvent.find()
 
   const sumEvents = {}
@@ -19,4 +21,4 @@ module.exports = cache(15e3, async (req, res) => {
 
   const sortedEvents = sortProperties(sumEvents)
   send(res, 200, sortedEvents)
-})
+})))

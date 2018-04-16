@@ -36,7 +36,7 @@ connectWithDB().then(() => {
         logIndex: result.logIndex
       }, result, { upsert: true }, function(err, res) {
         // Deal with the response data/error
-        console.log(err, res)
+        // console.log(err, res)
       });
     }
   });
